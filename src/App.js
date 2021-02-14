@@ -2,6 +2,7 @@ import React from 'react';
 import lul from './icons/lul.png'
 //components
 import SideNav from './components/SideNav';
+import Chart from './components/Chart';
  
 //styling
 import {
@@ -17,10 +18,12 @@ function App() {
 
   return (
     <div className="App">
-      <CssBaseline />
-      <Container style={{background}} maxWidth="sm">
+      <Chart />
+      <div >
+        <>
         <SideNav />
-      </Container>
+        </>
+      </div>
     </div>
   );
 }

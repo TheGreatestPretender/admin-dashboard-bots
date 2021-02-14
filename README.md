@@ -2,10 +2,11 @@
 
 *made with create-react-app duh*
 
-- [] Side bar navigation
+- [x] Side bar navigation
 - [] Background 
 - [] Alliance and Horde Theme (horde is default) toggle
 - [] Log in page?
+- [] Add routingto tabs!
 - [] Commands tab
 - [] Rate my mog tab
 - [] Roster

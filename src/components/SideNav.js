@@ -10,6 +10,7 @@ import {
     List,
     CssBaseline,
     Divider,
+    Typography,
     ListItem,
     ListItemIcon,
     ListItemText,
@@ -28,6 +29,8 @@ import {
 import transmog from '../icons/transmog.png';
 import dashboard from '../icons/dashboard.png';
 import commands from '../icons/commands.png';
+import ratings from '../icons/ratings.png';
+import roster from '../icons/roster.png';
 
 const drawerWidth = 240;
 
@@ -57,9 +60,6 @@ const useStyles = makeStyles((theme) => ({
   },
   hide: {
     display: 'none',
-  },
-  h2: {
-    marginLeft: '380px'
   },
   drawer: {
     width: drawerWidth,
@@ -95,9 +95,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  navImg: {
+    width: '20px',
+    height: '20px',
+    marginTop: '6%',
+    borderRadius: '2px !important',
+    marginLeft: '10px'
+  }
 }));
 
-export default function SideNav() {
+const SideNav = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -131,7 +138,7 @@ export default function SideNav() {
           >
             <MenuIcon />
           </IconButton>
-        <h2 className={classes.h2}>The Rock Game Shop</h2>
+        <Typography style={{fontSize: '2rem'}}>The Rock Game Shop</Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -155,27 +162,29 @@ export default function SideNav() {
         <Divider />
         <List>
             <ListItem button>
-                <ListItemIcon> <img src={dashboard} width='20px' height='20px' margin-top='6%' border-radius='5px' margin-left='10px'/></ListItemIcon>
+                <ListItemIcon className={classes.navImg} > <img src={dashboard}/></ListItemIcon>
                 <ListItemText style={{'marginLeft': '10px'}}>Dashboard</ListItemText>
             </ListItem>
             <ListItem button>
-                <ListItemIcon> <img src={commands} width='20px' height='20px' margin-top='6%' border-radius='5px' margin-left='10px'/></ListItemIcon>
+                <ListItemIcon className={classes.navImg}> <img src={commands} /></ListItemIcon>
                 <ListItemText style={{'marginLeft': '10px'}}>Commands</ListItemText>
             </ListItem>
             <ListItem button>
-                <ListItemIcon> <img src={transmog} width='20px' height='20px' margin-top='6%' border-radius='5px' margin-left='10px'/></ListItemIcon>
+                <ListItemIcon className={classes.navImg}> <img src={transmog} /></ListItemIcon>
                 <ListItemText style={{'marginLeft': '10px'}}>Rate my mog</ListItemText>
             </ListItem>
             <ListItem button>
-                <ListItemIcon> <img src={transmog} width='20px' height='20px' margin-top='6%' border-radius='5px' margin-left='10px'/></ListItemIcon>
+                <ListItemIcon className={classes.navImg}> <img src={roster}/></ListItemIcon>
                 <ListItemText style={{'marginLeft': '10px'}}>Roster</ListItemText>
             </ListItem>
             <ListItem button>
-                <ListItemIcon> <img src={transmog} width='20px' height='20px' margin-top='6%' border-radius='5px' margin-left='10px'/></ListItemIcon>
+                <ListItemIcon className={classes.navImg}> <img src={ratings}/></ListItemIcon>
                 <ListItemText style={{'marginLeft': '10px'}}>Xyron Ratings</ListItemText>
             </ListItem>
         </List>
       </Drawer>
     </div>
   );
-}
+};
+
+export default SideNav;
