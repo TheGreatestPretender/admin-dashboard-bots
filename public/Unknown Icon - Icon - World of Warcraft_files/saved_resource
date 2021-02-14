@@ -1,0 +1,38 @@
+
+var ftGUID_4577164="447533B359B461";
+var ftConfID_4577164="0";
+var ftParams_4577164="ftx=&fty=&ftadz=&ftscw=&ft_custom=&ftOBA=1&ft_agentEnv=0&ft_referrer=https%3A%2F%2Fwww.wowhead.com%2Ficon%3D3636839%2Funknown-icon&cachebuster=386113.9229944706";
+var ftKeyword_4577164="";
+var ftCustom_4577164="";
+var ftSection_4577164="";
+var ftSegment_4577164="xtx,acfu,w2b";
+var ftSegmentList_4577164=[{s:'xtx'},{s:'acfu'},{s:'w2b'}];
+var ftRuleMatch_4577164="0";
+var ftTimestamp_4577164="1613158180";
+var ftGeoC2_4577164="us";
+var ftGeoState_4577164="dc";
+var ftGeoCity_4577164="washington";
+var ftISP_4577164="verizon business";
+var ftSpeed_4577164="broadband";
+var ftDMA_4577164="511";
+var ftLong_4577164="-77.04";
+var ftLat_4577164="38.92";
+var ftPostal_4577164="20009";
+var ftTimeZone_4577164="-500";
+var ftMobileCarrier_4577164="";
+var ftImp4577164 = {};
+ftImp4577164.privacy = "x";
+ftImp4577164.guidAge = "316";
+ftImp4577164.impID = "AFE4236A-197F-2521-6DA1-1343E4AE8D4F";
+ftImp4577164.duid = "FT:447533B359B461";
+
+ftImp4577164.ft_tpplid = "";
+ftImp4577164.ft_c = {};
+ftImp4577164.gdpr = "";
+ftImp4577164.gdpr_consent = "";
+ftImp4577164.gdpr_pd = "";
+ftImp4577164.oob_consent = "0";
+ftImp4577164.gdprStoredConsent = "";
+ftImp4577164.us_privacy = "";
+
+document.write('<scr'+'ipt src="https://cdn.flashtalking.com/xre/457/4577164/3341973/js/j-4577164-3341973.js" id="ftscript_m4577164" name="ftscript_m4577164"></scr'+'ipt>');
