@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { BarChart, Bar, CartesianGrid, Tooltip, Legend, XAxis, YAxis, Label } from 'recharts';
+
+import {getCommandName} from '../services/api';
 
 const data = [
   {
@@ -29,23 +31,35 @@ const data = [
 const Chart = () => {
   const theme = useTheme();
 
+
+  /**
+   * 1. create an array of objects
+   * 2. each entry is a new object
+   * 3. map each commandName to the new object name property
+   */
+  useEffect(() => {
+    getCommandName();
+  }, []);
+
   return (
-    <BarChart
-      width={500}
-      height={300}
-      data={data}
-      margin={{
-        top: 5, right: 30, left: 20, bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="pv" fill="#8884d8" />
-      <Bar dataKey="uv" fill="#82ca9d" />
-    </BarChart>
+    <div style={{'display':'flex', 'justifyContent': 'center', 'alignItems': 'center', 'height': '1000px'}}>
+      <BarChart
+        width={500}
+        height={300}
+        data={data}
+        margin={{
+          top: 5, right: 30, left: 20, bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="pv" fill="#8884d8" />
+        <Bar dataKey="uv" fill="#82ca9d" />
+      </BarChart>
+    </div>
   );
 };
 
