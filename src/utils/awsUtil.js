@@ -3,7 +3,6 @@ const AWS = require('aws-sdk');
 
 
 AWS.config.update(awsConfig);
-
 let docClient = new AWS.DynamoDB.DocumentClient();
 
 //get all possible commands

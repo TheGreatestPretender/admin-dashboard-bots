@@ -10,24 +10,21 @@ const Chart = () => {
   let results = getCommands();
   console.log(typeof results);
   console.dir(results);
-  
-  
-  useEffect(() => {
-    console.dir(typeof results);
-    for (let key in results) {
-      if (results.hasOwnProperty(key)) console.log(`${key}:${results[key]}`);
-      else console.log('fuck')
-      
-    }
-  });
+
+  const data = [
+    {
+      name: 'add review',
+      Command: 3,
+      amt: 3
+    },];
 
   return (
     <BarChart
       width={500}
       height={300}
-      data={'test'}
+      data={data}
       margin={{
-        top: 5, right: 30, left: 20, bottom: 5,
+        top: 90, right: 30, left: 20, bottom: 5,
       }}
     >
       <CartesianGrid strokeDasharray="3 3" />
@@ -35,8 +32,7 @@ const Chart = () => {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="pv" fill="#8884d8" />
-      <Bar dataKey="uv" fill="#82ca9d" />
+      <Bar dataKey="Command" fill="#c12b12" />
     </BarChart>
   );
 };
