@@ -1,28 +1,47 @@
 import React, {useState, useEffect} from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { BarChart, Bar, CartesianGrid, Tooltip, Legend, XAxis, YAxis, Label } from 'recharts';
+import AWS from 'aws-sdk';
 
-import {getCommands} from "../utils/awsUtil";
+AWS.config.update(awsConfig);
+let docClient = new AWS.DynamoDB.DocumentClient();
 
 const Chart = () => {
   const theme = useTheme();
+  const [commands, setCommands] = useState([]);
+  
 
-  let results = getCommands();
-  console.log(typeof results);
-  console.dir(results);
+  useEffect(() => {
+    let listOfCommands = [];
+    let params = {
+      TableName: 'Logger'
+    };
 
-  const data = [
-    {
-      name: 'add review',
-      Command: 3,
-      amt: 3
-    },];
+    docClient.scan(params, (err, data) => {
+      console.log('Scanning logger db');
+      if (err) {
+        console.error('Unable to get command - ' + JSON.stringify(err, null, 2));
+      } else {
+        console.log('Scan success!');
+
+        data.Items.forEach(item => {
+          if (!(item.command in listOfCommands)) {
+            listOfCommands[item.command] = 0;
+          };
+
+          listOfCommands[item.command] += 1;
+          setCommands(listOfCommands[item.command]);
+        })
+      }
+    })
+    console.log(listOfCommands);
+  }, []);
 
   return (
     <BarChart
       width={500}
       height={300}
-      data={data}
+      data={commands}
       margin={{
         top: 90, right: 30, left: 20, bottom: 5,
       }}
@@ -38,45 +57,3 @@ const Chart = () => {
 };
 
 export default Chart;
-
-/**
- * import React from 'react'
-import { Chart } from 'react-charts'
- 
-function MyChart() {
-  const data = React.useMemo(
-    () => [
-      {
-        label: 'Series 1',
-        data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]]
-      },
-      {
-        label: 'Series 2',
-        data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]]
-      }
-    ],
-    []
-  )
- 
-  const axes = React.useMemo(
-    () => [
-      { primary: true, type: 'linear', position: 'bottom' },
-      { type: 'linear', position: 'left' }
-    ],
-    []
-  )
- 
-  const lineChart = (
-    // A react-chart hyper-responsively and continuously fills the available
-    // space of its parent element automatically
-    <div
-      style={{
-        width: '400px',
-        height: '300px'
-      }}
-    >
-      <Chart data={data} axes={axes} />
-    </div>
-  )
-}
- */
